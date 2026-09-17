@@ -1,0 +1,16 @@
+/* Thematic Grid Responsive */
+@media (max-width: 768px) {
+    .thematic-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .identity-bar .container {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        text-align: center;
+    }
+    
+    .leadership-section .grid {
+        grid-template-columns: 1fr;
+    }
+}

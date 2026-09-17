@@ -1,0 +1,642 @@
+/* ===================================
+   CSS VARIABLES (Brand Identity)
+   Change these to update your entire site's colors
+   =================================== */
+:root {
+    /* Brand Colors */
+    --color-primary: #2E7D32;      /* Earth Green - restoration */
+    --color-secondary: #0277BD;    /* Turkana Blue - water */
+    --color-accent: #5D4037;       /* Warm Ochre - land */
+    --color-warning: #F57C00;      /* For alerts */
+    
+    /* Neutral Colors */
+    --color-text: #333333;
+    --color-text-light: #666666;
+    --color-background: #FFFFFF;
+    --color-background-alt: #F5F5F5;
+    --color-border: #E0E0E0;
+    
+    /* Typography */
+    --font-heading: 'Montserrat', 'Arial', sans-serif;
+    --font-body: 'Open Sans', 'Arial', sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+    
+    /* Container width */
+    --container-max: 1200px;
+    
+    /* Transitions */
+    --transition: all 0.3s ease;
+}
+
+/* ===================================
+   RESET & BASE STYLES
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.6;
+    background-color: var(--color-background);
+}
+
+/* ===================================
+   TYPOGRAPHY
+   =================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+p {
+    margin-bottom: var(--spacing-sm);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--color-secondary);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===================================
+   LAYOUT UTILITIES
+   =================================== */
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.section {
+    padding: var(--spacing-xl) 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-primary);
+}
+
+.grid {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* ===================================
+   HEADER & NAVIGATION
+   =================================== */
+.site-header {
+    background-color: var(--color-background);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;  /* Increased space between image and text */
+    font-family: var(--font-heading);
+    font-size: 1.75rem;  /* Larger text */
+    font-weight: 700;
+    color: var(--color-bark);
+    border-bottom: none;
+    text-decoration: none;
+    white-space: nowrap;  /* Prevents text from wrapping */
+}
+
+
+.logo img {
+    height: 140px;  /* Increased from 45px to 70px */
+    width: auto;
+    max-width: 360px;  /* Prevents it from being too wide */
+}
+
+.logo-text {
+    letter-spacing: 3px;  /* More spacing for better readability */
+    color: var(--color-bark);
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.main-nav a {
+    color: var(--color-text);
+    font-weight: 500;
+    padding: var(--spacing-xs) 0;
+    position: relative;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--color-primary);
+}
+
+.main-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--color-primary);
+}
+
+.btn-donate {
+    background-color: var(--color-primary);
+    color: white !important;
+    padding: var(--spacing-xs) var(--spacing-sm) !important;
+    border-radius: 5px;
+}
+
+.btn-donate:hover {
+    background-color: var(--color-accent);
+    color: white !important;
+}
+
+/* Mobile menu toggle - hidden on desktop */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-text);
+    transition: var(--transition);
+}
+
+/* ===================================
+   HERO SECTION
+   =================================== */
+/* HERO SECTION */
+.hero {
+    position: relative;
+    height: 600px;
+    background-image: url('../images/hero/homepage-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    /* Optional: Uncomment to brighten the image */
+    /* filter: brightness(1.15); */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Lighter overlay - change 0.3 to 0.2 or 0.4 as needed */
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: var(--spacing-md);
+}
+
+.hero h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+    /* Text shadow for better readability */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    /* Text shadow for better readability */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===================================
+   BUTTONS
+   =================================== */
+.btn {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: var(--color-primary);
+}
+
+/* ===================================
+   CARDS
+   =================================== */
+.card {
+    background-color: var(--color-background);
+    padding: var(--spacing-md);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ===================================
+   STATS SECTION
+   =================================== */
+.stats-section {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.stats-section .section-title {
+    color: white;
+}
+
+.stat {
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: var(--spacing-xs);
+}
+
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* ===================================
+   BLOG CARDS
+   =================================== */
+.blog-card {
+    background-color: var(--color-background);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-card-content {
+    padding: var(--spacing-md);
+}
+
+.blog-date {
+    color: var(--color-text-light);
+    font-size: 0.875rem;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: var(--spacing-sm);
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+.site-footer {
+    background-color: var(--color-accent);
+    color: white;
+    padding: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+.site-footer h4 {
+    color: white;
+    margin-bottom: var(--spacing-sm);
+}
+
+.site-footer a {
+    color: white;
+    opacity: 0.8;
+}
+
+.site-footer a:hover {
+    opacity: 1;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-sm);
+    font-size: 1.5rem;
+}
+
+.footer-bottom {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+/* ===================================
+   IDENTITY BAR (MAZIDO-inspired)
+   =================================== */
+.identity-bar {
+    background-color: var(--color-bark);
+    color: var(--color-sand);
+    padding: var(--spacing-xs) 0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.identity-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.identity-badge {
+    font-weight: 700;
+    color: var(--color-grass);
+}
+
+.identity-location {
+    color: var(--color-sand);
+    opacity: 0.8;
+}
+
+/* ===================================
+   LEADERSHIP SECTION
+   =================================== */
+.leadership-section {
+    background-color: var(--color-sand);
+    padding: var(--spacing-lg) 0;
+}
+
+.leadership-card {
+    background-color: white;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-earth);
+    text-align: center;
+}
+
+.leadership-card .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.leadership-card h3 {
+    color: var(--color-bark);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.leadership-card p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+}
+
+/* ===================================
+   THEMATIC AREAS SECTION (MAZIDO-style)
+   =================================== */
+.thematic-section {
+    background-color: var(--color-background);
+}
+
+.section-subtitle {
+    text-align: center;
+    max-width: 800px;
+    margin: -var(--spacing-md) auto var(--spacing-lg);
+    color: var(--color-text-light);
+    font-size: 1.05rem;
+}
+
+.thematic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.thematic-card {
+    background-color: white;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    position: relative;
+    transition: var(--transition);
+}
+
+.thematic-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(62, 39, 35, 0.1);
+    border-color: var(--color-earth);
+}
+
+.thematic-number {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--color-grass);
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+.thematic-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-earth);
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+}
+
+.thematic-card h3 {
+    color: var(--color-bark);
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.thematic-card p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.verified-outcome {
+    background-color: var(--color-sand);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-sm);
+}
+
+.outcome-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-earth);
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+.outcome-metric {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+}
+
+.metric-number {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-bark);
+}
+
+.metric-text {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+}
+
+.outcome-code {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    opacity: 0.6;
+    font-family: monospace;
+}
+
+.read-project {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-earth);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid transparent;
+}
+
+.read-project:hover {
+    color: var(--color-sunset);
+    border-bottom-color: var(--color-sunset);
+}
+
+/* ===================================
+   STATS SECTION (Enhanced)
+   =================================== */
+.stat-detail {
+    font-size: 0.8rem;
+    color: var(--color-sand);
+    opacity: 0.7;
+    margin-top: var(--spacing-xs);
+}
