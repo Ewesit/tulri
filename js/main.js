@@ -1,76 +1,51 @@
-// Wait for the page to fully load
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ===================================
-    // MOBILE MENU TOGGLE
-    // ===================================
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const mainNav = document.querySelector('.main-nav');
-    
+    const navLinks = document.querySelectorAll('.main-nav a');
+
+    // 1. Toggle menu open/close
     if (menuToggle) {
         menuToggle.addEventListener('click', function() {
-            mainNav.classList.toggle('active');
             this.classList.toggle('active');
+            mainNav.classList.toggle('active');
+            
+            // Prevent the background page from scrolling when menu is open
+            document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : 'auto';
         });
     }
-    
-    // Close mobile menu when clicking a link
-    const navLinks = document.querySelectorAll('.main-nav a');
+
+    // 2. Close menu automatically when ANY link is clicked
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            mainNav.classList.remove('active');
+            // Close the menu and reset the hamburger icon
             menuToggle.classList.remove('active');
+            mainNav.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+            // Note: CSS 'scroll-behavior: smooth' in style.css will automatically 
+            // handle smooth scrolling if the link is an anchor (e.g., href="#section")
         });
     });
-    
-    // ===================================
-    // SMOOTH SCROLL FOR ANCHOR LINKS
-    // ===================================
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
+
+    // 3. Close menu if the user clicks outside of it (on the background)
+    document.addEventListener('click', function(event) {
+        if (mainNav.classList.contains('active') && 
+            !mainNav.contains(event.target) && 
+            !menuToggle.contains(event.target)) {
+            
+            menuToggle.classList.remove('active');
+            mainNav.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
     });
-    
-    // ===================================
-    // ACTIVE NAV LINK HIGHLIGHTING
-    // ===================================
+
+    // 4. Highlight active page in navigation
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navItems = document.querySelectorAll('.main-nav a');
-    
-    navItems.forEach(item => {
+    navLinks.forEach(item => {
         const href = item.getAttribute('href');
         if (href === currentPage || (currentPage === '' && href === 'index.html')) {
             item.classList.add('active');
         }
     });
-    
-    // ===================================
-    // SCROLL ANIMATIONS (optional)
-    // ===================================
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-            }
-        });
-    }, observerOptions);
-    
-    // Observe all cards and sections
-    document.querySelectorAll('.card, .blog-card, .stat').forEach(el => {
-        observer.observe(el);
-    });
-    
 });
