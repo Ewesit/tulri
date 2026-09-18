@@ -37,7 +37,7 @@
         display: block;
         width: 100%;
         height: 3px;
-        background-color: var(--color-bark);
+        background-color: #3E2723 !important; /* FORCE dark brown - ALWAYS VISIBLE */
         border-radius: 3px;
         transition: all 0.3s ease-in-out;
     }
@@ -45,30 +45,31 @@
     /* Hamburger turns into an 'X' when active */
     .mobile-menu-toggle.active span:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
+        background-color: #3E2723 !important;
     }
     .mobile-menu-toggle.active span:nth-child(2) {
         opacity: 0;
     }
     .mobile-menu-toggle.active span:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
+        background-color: #3E2723 !important;
     }
 
     /* The Drop-down Menu Panel */
     .main-nav {
         position: fixed;
-        top: 80px; /* Adjusts to sit right below your header */
+        top: 80px;
         left: 0;
         width: 100%;
         height: calc(100vh - 80px);
         background-color: var(--color-parchment);
-        transform: translateY(-150%); /* Hidden above the screen by default */
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth slide-down */
+        transform: translateY(-150%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 999;
         overflow-y: auto;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
 
-    /* Slide down when active */
     .main-nav.active {
         transform: translateY(0);
     }
@@ -88,14 +89,14 @@
         display: block;
         padding: 1.2rem 0;
         font-size: 1.1rem;
-        color: var(--color-bark);
+        color: #3E2723 !important; /* FORCE dark text */
         transition: padding-left 0.3s ease;
     }
 
     .main-nav a:hover, 
     .main-nav a.active {
-        color: var(--color-earth);
-        padding-left: 10px; /* Subtle slide effect on tap/hover */
+        color: var(--color-earth) !important;
+        padding-left: 10px;
     }
 
     /* Style the Donate button in mobile menu */
