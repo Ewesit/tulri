@@ -16,10 +16,17 @@
 }
 
 /* ===================================
-   MOBILE NAVIGATION (Smooth Drop-down)
+   MOBILE NAVIGATION (Solid Dark Overlay)
    =================================== */
 @media (max-width: 992px) {
-    /* Show the hamburger button */
+
+    /* Ensure the header stays on top of the menu */
+    .site-header {
+        z-index: 1001 !important;
+        background-color: var(--color-parchment) !important;
+    }
+
+    /* The Hamburger Button */
     .mobile-menu-toggle {
         display: flex;
         flex-direction: column;
@@ -30,76 +37,82 @@
         border: none;
         cursor: pointer;
         padding: 0;
-        z-index: 1001;
+        z-index: 1002;
     }
 
     .mobile-menu-toggle span {
         display: block;
         width: 100%;
         height: 3px;
-        background-color: #3E2723 !important; /* FORCE dark brown - ALWAYS VISIBLE */
+        background-color: #3E2723 !important; /* Dark brown lines */
         border-radius: 3px;
         transition: all 0.3s ease-in-out;
     }
 
-    /* Hamburger turns into an 'X' when active */
+    /* Hamburger turns into an 'X' */
     .mobile-menu-toggle.active span:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
-        background-color: #3E2723 !important;
     }
     .mobile-menu-toggle.active span:nth-child(2) {
         opacity: 0;
     }
     .mobile-menu-toggle.active span:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
-        background-color: #3E2723 !important;
     }
 
-    /* The Drop-down Menu Panel */
+    /* THE SOLID DROP-DOWN MENU */
     .main-nav {
         position: fixed;
-        top: 80px;
+        top: 80px; /* Sits right below the header */
         left: 0;
         width: 100%;
-        height: calc(100vh - 80px);
-        background-color: var(--color-parchment);
-        transform: translateY(-150%);
+        height: calc(100vh - 80px); /* Covers the rest of the screen */
+        background-color: #3E2723 !important; /* FORCE Dark Acacia Bark background */
+        transform: translateY(-150%); /* Hidden by default */
         transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 999;
+        z-index: 1000 !important; /* High z-index to cover all page content */
         overflow-y: auto;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        padding-bottom: 2rem;
     }
 
+    /* Slide down when active */
     .main-nav.active {
         transform: translateY(0);
     }
 
     .main-nav ul {
         flex-direction: column;
-        padding: 2rem;
+        padding: 1rem 2rem;
         gap: 0;
+        list-style: none;
     }
 
     .main-nav li {
         width: 100%;
-        border-bottom: 1px solid var(--color-border);
+        border-bottom: 1px solid rgba(245, 240, 232, 0.1); /* Very subtle light separator */
     }
 
+    /* Menu Links */
     .main-nav a {
         display: block;
         padding: 1.2rem 0;
-        font-size: 1.1rem;
-        color: #3E2723 !important; /* FORCE dark text */
-        transition: padding-left 0.3s ease;
+        font-size: 1.15rem;
+        color: #F5F0E8 !important; /* FORCE Parchment/White text */
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        border-bottom: none !important;
     }
 
+    /* Hover and Active States */
     .main-nav a:hover, 
     .main-nav a.active {
-        color: var(--color-earth) !important;
+        color: #C8A96E !important; /* Dry Grass Gold on hover */
         padding-left: 10px;
+        background-color: rgba(255, 255, 255, 0.05);
     }
 
-    /* Style the Donate button in mobile menu */
+    /* Donate Button in Mobile Menu */
     .main-nav .btn-donate {
         display: block;
         margin-top: 1.5rem;
@@ -109,5 +122,12 @@
         border-radius: var(--border-radius);
         padding: 1rem !important;
         border-bottom: none !important;
+        font-weight: 700;
+    }
+    
+    .main-nav .btn-donate:hover {
+        background-color: var(--color-earth) !important;
+        color: white !important;
+        padding-left: 0 !important; /* Prevents the slide effect on the button */
     }
 }

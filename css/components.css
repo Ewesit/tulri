@@ -1755,3 +1755,154 @@
         padding: 2rem;
     }
 }
+
+/* ===================================
+   ABOUT PAGE: TREASURE / BENEFITS ZONE
+   =================================== */
+.treasure-zone {
+    background-color: white;
+    padding: 4rem 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.treasure-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.treasure-card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background-color: var(--color-parchment);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.treasure-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-earth);
+    box-shadow: 0 8px 20px rgba(62, 39, 35, 0.08);
+}
+
+.treasure-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    background-color: var(--color-sand);
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 50%;
+}
+
+.treasure-card h3 {
+    color: var(--color-bark);
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-heading);
+}
+
+.treasure-card p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Adjustments for Treasure Grid */
+@media (max-width: 992px) {
+    .treasure-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .treasure-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .treasure-card {
+        padding: 1.5rem;
+    }
+}
+
+/* ===================================
+   OUR WORK PAGE: STRATEGIC TARGETING
+   =================================== */
+.targeting-zone {
+    background-color: var(--color-parchment);
+    padding: 4rem 0;
+}
+
+.priority-tier {
+    margin-bottom: 3rem;
+}
+
+.priority-tier:last-child {
+    margin-bottom: 0;
+}
+
+.tier-badge {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.tier-very-high { background-color: var(--color-sunset); } /* Urgent Orange/Red */
+.tier-high { background-color: var(--color-earth); }       /* Earthy Brown */
+.tier-medium { background-color: var(--color-water); }     /* Calm Blue */
+
+.tier-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.target-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border-left: 5px solid transparent; /* Color set inline in HTML */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    transition: var(--transition);
+}
+
+.target-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.target-card h4 {
+    color: var(--color-bark);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+}
+
+.target-card p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .tier-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .targeting-zone {
+        padding: 3rem 0;
+    }
+}

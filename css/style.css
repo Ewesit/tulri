@@ -1,3 +1,6 @@
+html {
+    scroll-behavior: smooth;
+}
 /* ===================================
    CSS VARIABLES (Brand Identity)
    Change these to update your entire site's colors
