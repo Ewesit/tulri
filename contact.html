@@ -52,95 +52,80 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section class="page-hero">
+    <section class="page-hero contact-hero">
         <div class="container">
-            <h1>Contact Us</h1>
-            <p>We'd love to hear from you. Whether you're a community member, a partner, or a donor, let's connect.</p>
+            <h1>Reach Out to the Field</h1>
+            <p>Have a question, a partnership idea, or want to volunteer? We read every message.</p>
         </div>
     </section>
 
-    <!-- CONTACT INFO & FORM SECTION -->
+    <!-- CONTACT INFO & FORM -->
     <section class="section contact-section">
-        <div class="container contact-container">
-            
-            <!-- LEFT: Contact Information -->
-            <div class="contact-info">
-                <h2 class="zone-title">Get in Touch</h2>
-                <p style="color: var(--color-text-light); margin-bottom: 2rem; line-height: 1.7;">
-                    Have questions about our projects, want to volunteer, or interested in partnering with TULRI? Reach out to us using the information below or send us a direct message.
-                </p>
-
-                <div class="info-card">
-                    <div class="info-icon">📍</div>
-                    <div class="info-text">
-                        <h4>Visit Us</h4>
-                        <p>Turkana West Sub-County<br>Lokichoggio, Kenya</p>
-                    </div>
-                </div>
-
-                <div class="info-card">
-                    <div class="info-icon">📞</div>
-                    <div class="info-text">
-                        <h4>Call or WhatsApp</h4>
-                        <p>+254 XXX XXX XXX<br>+254 XXX XXX XXX</p>
-                    </div>
-                </div>
-
-                <div class="info-card">
-                    <div class="info-icon">✉️</div>
-                    <div class="info-text">
-                        <h4>Email Us</h4>
-                        <p>info@tulri.org<br>partnerships@tulri.org</p>
-                    </div>
-                </div>
-
-                <div class="info-card">
-                    <div class="info-icon">🕒</div>
-                    <div class="info-text">
-                        <h4>Office Hours</h4>
-                        <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 1:00 PM</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RIGHT: Contact Form -->
-            <div class="contact-form-wrapper">
-                <h2 class="zone-title" style="margin-bottom: 1rem;">Send a Message</h2>
+        <div class="container">
+            <div class="contact-grid">
                 
-                <!-- Note: To make this form actually send emails, sign up for a free account at Formspree.io and replace the action URL below -->
-                <form class="contact-form" action="https://formspree.io/f/yourformid" method="POST">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2 class="zone-title">Let's Connect</h2>
+                    <p style="margin-bottom: 2rem; color: var(--color-text); line-height: 1.7;">
+                        Whether you are a local community member, a potential partner, or an international donor, we want to hear from you. We typically respond within 48 hours.
+                    </p>
                     
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    <div class="info-card">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <h4>Our Base</h4>
+                            <p>Kakuma Town, Turkana West Sub-County<br>Kenya</p>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <div class="info-card">
+                        <span class="info-icon">📞</span>
+                        <div>
+                            <h4>Phone & WhatsApp</h4>
+                            <p>+254 7XX XXX XXX<br><em>(WhatsApp preferred for fastest response)</em></p>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <select id="subject" name="subject" required>
-                            <option value="" disabled selected>Select a topic</option>
-                            <option value="General Inquiry">General Inquiry</option>
-                            <option value="Volunteering">Volunteering</option>
-                            <option value="Partnership">Partnership / Donor Inquiry</option>
-                            <option value="Media">Media / Press</option>
-                            <option value="Other">Other</option>
-                        </select>
+                    <div class="info-card">
+                        <span class="info-icon">✉️</span>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@tulri.org<br>partnerships@tulri.org</p>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
-                    </div>
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h3 style="color: var(--color-bark); margin-bottom: 1.5rem; font-family: var(--font-heading);">Send Us a Message</h3>
+                    <form class="tulri-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required placeholder="e.g., John Kamau">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject">
+                                <option value="general">General Inquiry</option>
+                                <option value="partnership">Partnership / Funding</option>
+                                <option value="volunteer">Volunteering</option>
+                                <option value="media">Media / Press</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="How can we help, or how would you like to support?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
 
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                </form>
             </div>
-
         </div>
     </section>
 
@@ -160,37 +145,58 @@
 
     <!-- FOOTER -->
     <footer class="site-footer">
-        <div class="container">
-            <div class="grid grid-4">
-                <div class="footer-col">
-                    <h4>TULRI</h4>
-                    <p>Turkana Livelihoods & Restoration Initiative</p>
-                    <p class="tagline">Restoring Land, Securing Livelihoods</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="work.html">Our Work</a></li>
-                        <li><a href="get-involved.html">Get Involved</a></li>
-                        <li><a href="donate.html">Donate</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <p>📍 Turkana West, Kenya</p>
-                    <p>📞 +254 723 641 896</p>
-                    <p>✉️ info@tulri.org</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">📘</a>
-                        <a href="#" aria-label="Twitter">🐦</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="WhatsApp">💬</a>
-                    </div>
+    <div class="container">
+        <!-- NEW: Human Field Note -->
+        <div class="footer-field-note">
+            <p>📝 <strong>Field Note from Turkana West:</strong> <span id="field-update">Current conditions: 34°C, dusty winds from the east. Community clearing operations ongoing near Nanam River.</span> <em>(Updated weekly by the TULRI team)</em></p>
+        </div>
+
+        <div class="grid grid-4">
+            <div class="footer-col">
+                <h4>TULRI</h4>
+                <p>Turkana Livelihoods & Restoration Initiative</p>
+                <p class="tagline">Reclaiming our land. Rebuilding our peace.</p>
+            </div>
+            
+            <!-- NEW: Prominent M-Pesa -->
+            <div class="footer-col mpesa-highlight">
+                <h4>Support Directly</h4>
+                <p>Every shilling stays in Turkana.</p>
+                <div class="mpesa-box">
+                    <span class="mpesa-label">M-Pesa Paybill:</span>
+                    <span class="mpesa-number">[INSERT YOUR PAYBILL]</span>
+                    <span class="mpesa-label">Account:</span>
+                    <span class="mpesa-number">TULRI</span>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy;
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="work.html">How We Work</a></li>
+                    <li><a href="get-involved.html">Join the Movement</a></li>
+                    <li><a href="blog.html">Stories from the Field</a></li>
+                </div>
+
+            <div class="footer-col">
+                <h4>Find Us</h4>
+                <p>📍 Lokichoggio, Turkana West, Kenya</p>
+                <p>📞 +254 [Your Real Number]</p>
+                <p>✉️ info@tulri.org</p>
+                <div class="social-links" style="margin-top: 1rem;">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="WhatsApp">💬</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 TULRI. Built with ❤️ in Turkana. | <a href="#">Privacy Policy</a></p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
